@@ -4,7 +4,7 @@
         <div class="app">
             <h2>Todo list</h2>
             <input v-model="Todo" placeholder="Write and press enter..." v-on:keyup.enter="addTodo" />
-            <button>Clear list</button>
+            <button @click="clearTodos()">Clear list</button>
             <ul>
                 <li v-for="todo in todos" v-bind:key="todo.id">{{ }}
                     <label>
@@ -33,7 +33,10 @@
             },
             removeTodo(id) {
                 this.todos = this.todos.filter(todo => todo.id !== id)
-            }
+            },
+            clearTodos(){
+               this.todos = [];
+            },
         }
     };
 </script>
