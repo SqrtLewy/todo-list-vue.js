@@ -44,6 +44,6 @@
     }
     h2{
         text-align: center;
-        font-family: Verdana;
+		font-family: 'New Rocker', cursive;
     }
 </style>

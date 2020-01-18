@@ -30,8 +30,9 @@
         methods: {
             addTodo({target}){
                 this.todos.push({text: target.value, complete: false, id: Date.now()})
+				this.Todo = ''
             },
-            removeTodo(id) {
+            removeTodo(id){
                 this.todos = this.todos.filter(todo => todo.id !== id)
             },
             clearTodos(){
@@ -46,6 +47,7 @@
         background: skyblue;
         border-radius: 35px;
         padding: 40px;
+		font-family: 'New Rocker', cursive;
     }
     li {
         margin: 10px;
@@ -59,7 +61,4 @@
     ul{
         list-style: none;
     }
-	h2{
-		font-family: Verdana;
-	}
 </style>
