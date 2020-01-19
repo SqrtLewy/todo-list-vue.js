@@ -4,7 +4,7 @@
         <div class="TodoApp">
             <h2>Todo list</h2>
             <input v-model="Todo" placeholder="Write and press enter..." v-on:keyup.enter="addTodo" />
-            <button @click="clearTodos()">Clear list</button>
+            <button @click="clearTodos()" class="btn btn-primary">Clear list</button>
             <ul>
                 <li v-for="todo in todos" v-bind:key="todo.id">{{ }}
                     <label>
@@ -13,7 +13,7 @@
                     </label>
                     <del v-if="todo.complete">{{ todo.text }}</del>
                     <span v-else>{{ todo.text }}</span>
-                    <button @click="removeTodo(todo.id)">X</button>
+                    <button @click="removeTodo(todo.id)" class="btn btn-secondary">X</button>
                 </li>
             </ul>
         </div>
@@ -43,22 +43,20 @@
 </script>
 
 <style lang="scss" scoped>
+@import '~bootstrap/scss/bootstrap';
     .TodoApp{
         background: skyblue;
         border-radius: 35px;
         padding: 5px;
         font-family: 'New Rocker', cursive;
     }
+	ul{
+        list-style: none;
+    }
     li {
         margin: 10px;
     }
     button{
-        margin: 4px;
-    }
-    button:hover{
-        color: blue;
-    }
-    ul{
-        list-style: none;
-    }
+        margin: 6px;
+	}
 </style>
