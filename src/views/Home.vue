@@ -24,8 +24,16 @@
     export default {
         data() {
             return{
-                todos: [{text: 'Test', complete: false, id: Date.now()}]
+                todos: JSON.parse(localStorage.getItem('todos')) || [],
             };
+        },
+        watch: {
+            todos: {
+                deep: true,
+                handler() {
+                    localStorage.setItem('todos', JSON.stringify(this.todos));
+                }
+            }
         },
         methods: {
             addTodo({target}){
