@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         <br />
-        <div class="app">
+        <div class="TodoApp">
             <h2>Todo list</h2>
             <input v-model="Todo" placeholder="Write and press enter..." v-on:keyup.enter="addTodo" />
             <button @click="clearTodos()">Clear list</button>
@@ -30,24 +30,24 @@
         methods: {
             addTodo({target}){
                 this.todos.push({text: target.value, complete: false, id: Date.now()})
-				this.Todo = ''
+                this.Todo = ''
             },
             removeTodo(id){
                 this.todos = this.todos.filter(todo => todo.id !== id)
             },
             clearTodos(){
-               this.todos = [];
+                this.todos = [];
             },
         }
     };
 </script>
 
 <style lang="scss" scoped>
-    .app{
+    .TodoApp{
         background: skyblue;
         border-radius: 35px;
-        padding: 40px;
-		font-family: 'New Rocker', cursive;
+        padding: 5px;
+        font-family: 'New Rocker', cursive;
     }
     li {
         margin: 10px;
@@ -55,9 +55,9 @@
     button{
         margin: 4px;
     }
-	button:hover{
-		color: blue;
-	}
+    button:hover{
+        color: blue;
+    }
     ul{
         list-style: none;
     }
