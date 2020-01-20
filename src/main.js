@@ -1,4 +1,9 @@
 import Vue from 'vue';
+import 'es6-promise/auto';
+import Vuex from 'vuex';
+
+Vue.use(Vuex);
+
 import App from './App.vue';
 import router from './router';
 import jQuery from 'jquery';
