@@ -12,7 +12,6 @@ window.$ = window.jQuery = jQuery;
 
 import 'popper.js';
 import 'bootstrap';
-
 Vue.config.productionTip = false;
 
 new Vue({

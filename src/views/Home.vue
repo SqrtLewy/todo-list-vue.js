@@ -1,5 +1,6 @@
 <template>
     <div class="container">
+		<test />
         <br />
         <div class="TodoApp">
             <h2>Todo list</h2>
@@ -21,7 +22,9 @@
 </template>
 
 <script>
+import test from '@/components/test';
     export default {
+		components: { test },
         data() {
             return{
                 todos: JSON.parse(localStorage.getItem('todos')) || [],
