@@ -8,7 +8,7 @@
 <script>
     import todoapp from '@/components/todoapp';
     export default {
-        components: { todoapp },
+        components: { todoapp }
     };
 </script>
 
