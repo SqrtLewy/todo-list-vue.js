@@ -1,29 +1,33 @@
-# todo-list
+# Todo-list in Vue.js - How to run this project?
 
-## Project setup
+## First step - Clone project
+```
+clone https://github.com/SqrtLewy/todo-list-vue.js.git
+```
+
+## Next - Setup project
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+## Next - Compiles and hot-reloads for development
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
+# Other activities
+
+## Compiles and minifies for production
 ```
 npm run build
 ```
 
-### Run your unit tests
+## Run your unit tests
 ```
 npm run test:unit
 ```
 
-### Lints and fixes files
+## Lints and fixes files
 ```
 npm run lint
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
