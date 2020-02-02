@@ -13,7 +13,7 @@ module.exports = {
     },
     "parserOptions": {
         "ecmaVersion": 2018,
-        "sourceType": "module"
+        "sourceType": "module",
 		"parser": "babel-eslint"
     },
     "plugins": [
