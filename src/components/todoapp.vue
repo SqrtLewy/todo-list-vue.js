@@ -1,12 +1,12 @@
 <template>
     <div class="TodoApp">
         <h2>Todo list</h2>
-        <input v-model="Todo" placeholder="Write and press enter..." v-on:keyup.enter="addTodo" />
+        <input class="newTodo" v-model="Todo" placeholder="Write and press enter..." v-on:keyup.enter="addTodo" />
         <button @click="clearTodos()" class="btn btn-primary">Clear list</button>
         <ul>
             <li v-for="todo in todos" v-bind:key="todo.id">{{ }}
                 <label>
-                    <input type="checkbox" v-model="todo.complete">
+                    <input class="finished" type="checkbox" v-model="todo.complete">
                     <span>&nbsp;</span>
                 </label>
                 <del v-if="todo.complete">{{ todo.text }}</del>
