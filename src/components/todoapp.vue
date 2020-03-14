@@ -1,9 +1,10 @@
 <template>
     <div class="TodoApp">
         <h2>Todo list</h2>
-        <input class="newTodo" :value="newTodo" @change="getTodo" placeholder="Write and press enter..." v-on:keyup.enter="addTodo()">
-		<button @click="clearTodos()" class="btn btn-primary">Clear list</button>
-
+        <input class="newTodo" :value="newTodo" @change="getTodo" placeholder="Write and press enter..."
+               v-on:keyup.enter="addTodo()">
+        <button @click="clear(todo)" class="btn btn-primary">Clear list</button>
+        <p v-if="todos.length>0">Current [{{todos.length}}]</p>
         <ul>
             <li v-for="todo in todos" v-bind:key="todo.id">{{ }}
                 <label>
@@ -12,42 +13,45 @@
                 </label>
                 <del v-if="todo.complete">{{ todo.body }}</del>
                 <span v-else>{{ todo.body }}</span>
-                <button @click="remove(todo.id)" class="btn btn-secondary">X</button>
+                <button @click="remove(todo)" class="btn btn-secondary">X</button>
             </li>
         </ul>
     </div>
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
-export default {
-  name: 'TodoList',
-  data () {
-    return {
+    import {mapGetters} from 'vuex'
+
+    export default {
+        name: 'TodoList',
+        data() {
+            return {}
+        },
+        computed: {
+            ...mapGetters({
+                newTodo: 'newTodo',
+                todos: 'todos',
+            })
+        },
+        methods: {
+            getTodo(e) {
+                this.$store.dispatch('getTodo', e.target.value)
+            },
+            addTodo() {
+                this.$store.dispatch('addTodo')
+                this.$store.dispatch('clearTodo')
+            },
+            remove(todo) {
+                this.$store.dispatch('removeTodo', todo)
+            },
+            clear(todo) {
+                let i = 0
+                while (i < this.todos.length) {
+                    this.$store.dispatch('removeTodo', todo)
+                }
+            }
+        }
     }
-  },
-  computed: {
-    ...mapGetters({
-      newTodo: 'newTodo',
-      todos: 'todos',
-    })
-  },
-  methods: {
-    getTodo (e) {
-      this.$store.dispatch('getTodo', e.target.value)
-    },
-    addTodo () {
-      this.$store.dispatch('addTodo')
-      this.$store.dispatch('clearTodo')
-    },
-    remove (todo) {
-      this.$store.dispatch('removeTodo', todo)
-    },
-	clearTodos(){
-		this.todos = [];
-	}
-  }
-}
 </script>
 
 <style lang="scss" scoped>
