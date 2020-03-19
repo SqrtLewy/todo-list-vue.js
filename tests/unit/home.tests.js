@@ -1,5 +1,7 @@
 import { mount } from '@vue/test-utils'
 import todoapp from '@/components/todoapp.vue'
+import Vuex from 'vuex'
+import store from '@/store'
 
 describe('todoapp', () => {
   // Now mount the component and you have the wrapper

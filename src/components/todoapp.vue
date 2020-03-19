@@ -20,7 +20,7 @@
 </template>
 
 <script>
-    import {mapGetters} from 'vuex'
+    import { mapGetters } from 'vuex'
 
     export default {
         name: 'TodoList',
@@ -56,22 +56,18 @@
 
 <style lang="scss" scoped>
     @import '~bootstrap/scss/bootstrap';
-
     .TodoApp {
         background: skyblue;
         border-radius: 35px;
         padding: 5px;
         font-family: 'New Rocker', cursive;
     }
-
     ul {
         list-style: none;
     }
-
     li {
         margin: 10px;
     }
-
     button {
         margin: 6px;
     }

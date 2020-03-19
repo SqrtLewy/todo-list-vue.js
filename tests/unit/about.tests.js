@@ -12,6 +12,7 @@ it('site has a link', () => {
 it('site has a image', () => {
     expect(wrapper.contains('img')).toBe(true)
   })
+  
 it('checks if h2 is correct', () => {
     expect(wrapper.find('h2').text()).toEqual("Contact me!")
   })
