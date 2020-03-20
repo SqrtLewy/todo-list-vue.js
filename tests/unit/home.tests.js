@@ -1,11 +1,27 @@
-import { mount } from '@vue/test-utils'
+import { shallowMount, createLocalVue } from '@vue/test-utils'
 import todoapp from '@/components/todoapp.vue'
 import Vuex from 'vuex'
-import store from '@/store'
+
+const localVue = createLocalVue()
+
+localVue.use(Vuex)
 
 describe('todoapp', () => {
-  // Now mount the component and you have the wrapper
-  const wrapper = mount(todoapp)
+  let getters
+  let store
+
+  beforeEach(() => {
+    getters = {
+		newTodo: 'newTodo',
+		todos: 'todos'
+    }
+
+    store = new Vuex.Store({
+      getters
+    })
+  })
+  
+  const wrapper = shallowMount(todoapp, { store, localVue })
   const vm = wrapper.vm
 
 it('site has a button', () => {
