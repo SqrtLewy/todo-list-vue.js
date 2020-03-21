@@ -24,14 +24,9 @@
 
     export default {
         name: 'TodoList',
+		computed: mapGetters(['newTodo', 'todos']),
         data() {
             return {}
-        },
-        computed: {
-            ...mapGetters({
-                newTodo: 'newTodo',
-                todos: 'todos',
-            })
         },
         methods: {
             getTodo(e) {
